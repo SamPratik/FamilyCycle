@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form class="row" action="{{ route('user.ab.posts.store') }}" method="post">
+        <form class="row" action="{{ route('user.posts.store') }}" method="post">
           {{ csrf_field() }}
           <div class="form-group">
             <label for="" style="color:#1abc9c;">Write post here:</label>

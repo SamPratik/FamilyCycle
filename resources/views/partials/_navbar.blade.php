@@ -45,7 +45,7 @@
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forum
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.ab.posts.index') }}">Show Posts</a></li>
+                        <li><a href="{{ route('user.posts.index') }}">Show Posts</a></li>
                         <li><a href="#">Create Posts</a></li>
                       </ul>
                     </li>

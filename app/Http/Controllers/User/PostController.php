@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User\after_birth;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -56,7 +56,7 @@ class PostController extends Controller
         Session::flash('success', 'You have posted successfully!');
         $request->flash();
 
-        return redirect()->route('user.ab.posts.index');
+        return redirect()->route('user.posts.index');
     }
 
     /**
