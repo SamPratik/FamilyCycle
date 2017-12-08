@@ -65,15 +65,6 @@
           <h3>Diseases</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links" href="{{ route('user.ab.posts.index') }}">
-      {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
-        <div>
-          <img src="https://png.icons8.com/myspace/color/150/000000">
-        </div>
-        <div>
-          <h3>Forum</h3>
-        </div>
-      </a>
       <a class="col-md-4 af-links">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
@@ -83,8 +74,6 @@
           <h3>Photo Album</h3>
         </div>
       </a>
-    </div>
-    <div class="row">
       <a class="col-md-4 af-links">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
@@ -94,6 +83,8 @@
           <h3>Guidelines</h3>
         </div>
       </a>
+    </div>
+    <div class="row">
       <a class="col-md-4 af-links">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>

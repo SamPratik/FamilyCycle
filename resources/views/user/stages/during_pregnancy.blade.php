@@ -65,7 +65,7 @@
           <h3>Health & Nutrition</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links" href="{{ route('user.ab.posts.index') }}">
+      <a class="col-md-4 af-links">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/help/office/150/000000">

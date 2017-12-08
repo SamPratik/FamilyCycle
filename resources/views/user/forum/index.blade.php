@@ -4,10 +4,10 @@
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 @section('content')
   <div class="container" style="position:relative;top:100px;">
+
     {{-- Post Form --}}
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-
         @if (session()->has('success'))
           <div class="alert alert-success">
             <strong>Success!</strong> {{ session('success') }}
@@ -18,17 +18,18 @@
                 <p>{{ $errors->first('post') }}</p>
             </div>
         @endif
-
-        <form class="row" action="{{ route('user.posts.store') }}" method="post">
-          {{ csrf_field() }}
-          <div class="form-group">
-            <label for="" style="color:#1abc9c;">Write post here:</label>
-            <textarea class="form-control" name="post" rows="5" cols="80"></textarea>
-          </div>
-          <div class="form-group col-md-2 col-md-offset-5" style="margin-top:-5px;">
-            <input class="btn btn-success btn-block" type="submit" name="submit" value="Post">
-          </div>
-        </form>
+        @auth
+          <form class="row" action="{{ route('user.posts.store') }}" method="post">
+            {{ csrf_field() }}
+            <div class="form-group">
+              <label for="" style="color:#1abc9c;">Write post here:</label>
+              <textarea class="form-control" name="post" rows="5" cols="80"></textarea>
+            </div>
+            <div class="form-group col-md-2 col-md-offset-5" style="margin-top:-5px;">
+              <input class="btn btn-success btn-block" type="submit" name="submit" value="Post">
+            </div>
+          </form>
+        @endauth
       </div>
     </div>
 
