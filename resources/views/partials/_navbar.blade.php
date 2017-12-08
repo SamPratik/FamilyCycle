@@ -26,10 +26,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
-                @else
+
                     <li><a href="{{ route('user.home') }}">Home</a></li>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stages
@@ -41,40 +38,41 @@
                         <li><a href="{{ route('user.after_birth') }}">After Birth</a></li>
                       </ul>
                     </li>
-                    <li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Forum
-                      <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.posts.index') }}">Show Posts</a></li>
-                        <li><a href="#">Create Posts</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="{{ route('user.posts.index') }}">Forum</a></li>
                     <li><a href="{{ route('user.contacts') }}">Contacts</a></li>
                     {{-- <li><a href="#">My Profile</a></li> --}}
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                            <img class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=30" />
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
+                    @guest
+                      <li><a href="{{ route('login') }}">Login</a></li>
+                      <li><a href="{{ route('register') }}">Register</a></li>
+                    @endguest
 
-                        <ul class="dropdown-menu">
-                            <img style="display:block;margin:auto;" class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=100" />
-                            <li class="divider"></li>
-                            <li><a href="#">My Profile</a></li>
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
+                    @auth
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                              <img class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=30" />
+                              {{ Auth::user()->name }} <span class="caret"></span>
+                          </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endguest
+                          <ul class="dropdown-menu">
+                              <img style="display:block;margin:auto;" class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=100" />
+                              <li class="divider"></li>
+                              <li><a href="#">My Profile</a></li>
+                              <li>
+                                  <a href="{{ route('logout') }}"
+                                      onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                      Logout
+                                  </a>
+
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      {{ csrf_field() }}
+                                  </form>
+                              </li>
+                          </ul>
+                      </li>
+                    @endauth
+
+
             </ul>
         </div>
     </div>

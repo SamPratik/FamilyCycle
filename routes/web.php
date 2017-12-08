@@ -21,7 +21,7 @@ Route::get('/', 'HomeController@index')->name('user.home');
 
 Route::get('user/contacts', function() {
   return view('user.contacts');
-})->name('user.contacts')->middleware('auth');
+})->name('user.contacts');
 
 // 4 stages home routes for users
 Route::prefix('user')->group(function () {
