@@ -43,11 +43,13 @@ Route::prefix('user')->group(function () {
 Route::resource('user/posts', 'User\PostController', [
   'names' => [
       'index' => 'user.posts.index',
-      'create' => 'user.posts.create',
       'store' => 'user.posts.store',
       'edit' => 'user.posts.edit',
       'update' => 'user.posts.update',
       'destroy' => 'user.posts.destroy'
+  ],
+  'except' => [
+      'create', 'show'
   ]
 ]);
 
@@ -58,5 +60,8 @@ Route::resource('user/comments', 'User\CommentController', [
       'edit' => 'user.comments.edit',
       'update' => 'user.comments.update',
       'destroy' => 'user.comments.destroy'
+  ],
+  'except' => [
+      'index', 'show', 'create'
   ]
 ]);

@@ -109,10 +109,11 @@
                       @endif
                       <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="{{ route('user.comments.edit', $comment->id ) }}">Edit</a></li>
-                        {{-- <li><a href="" onclick="event.preventDefault();document.getElementById('DeleteCommentForm').submit();">Delete {{$comment->id}}</a></li>
+                        <li><a href="" onclick="event.preventDefault();document.getElementById('DeleteCommentForm').submit();">Delete {{$comment->id}}</a></li>
                         <form id="DeleteCommentForm" action="{{ route('user.comments.destroy', $comment->id) }}" method="POST" style="display:none;">
+                          {{ csrf_field() }}
                           <input type="hidden" name="_method" value="DELETE">
-                        </form> --}}
+                        </form>
                       </ul>
                     </span>
                   @endauth
@@ -152,6 +153,9 @@
     @endforeach
     </div>
 
+    {{-- Including Live Chat --}}
+    @include('partials._live_chat')
+
   <script>
     var editor_config = {
       path_absolute : "{{ URL::to('/') }}/",
@@ -189,11 +193,11 @@
     tinymce.init(editor_config);
   </script>
 
-    @push('scripts')
-      <script>
-        function slideToggleComments(p_id) {
-          $("#comments" + p_id).slideToggle();
-        }
-      </script>
-    @endpush
+  @push('scripts')
+    <script>
+      function slideToggleComments(p_id) {
+        $("#comments" + p_id).slideToggle();
+      }
+    </script>
+  @endpush
 @endsection

@@ -69,5 +69,6 @@
     </div><br />
 
   </div>
+  @includeif('partials._live_chat')
   @includeif('partials._footer')
 </body>
