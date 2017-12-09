@@ -39,7 +39,7 @@ Route::prefix('user')->group(function () {
     })->name('user.during_pregnancy');
 });
 
-// Users After Birth Posts Routes
+// Users Posts Routes
 Route::resource('user/posts', 'User\PostController', [
   'names' => [
       'index' => 'user.posts.index',
@@ -48,5 +48,15 @@ Route::resource('user/posts', 'User\PostController', [
       'edit' => 'user.posts.edit',
       'update' => 'user.posts.update',
       'destroy' => 'user.posts.destroy'
+  ]
+]);
+
+// User comment routes
+Route::resource('user/comments', 'User\CommentController', [
+  'names' => [
+      'store' => 'user.comments.store',
+      'edit' => 'user.comments.edit',
+      'update' => 'user.comments.update',
+      'destroy' => 'user.comments.destroy'
   ]
 ]);

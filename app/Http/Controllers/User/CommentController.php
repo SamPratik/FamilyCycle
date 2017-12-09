@@ -4,16 +4,11 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\AfterBirthPost as Post;
 use App\AbComment as Comment;
 use Session;
-use Auth;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
-    public function __construct() {
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'DESC')->get();
-        return view('user.forum.index', ['posts' => $posts]);
+        //
     }
 
     /**
@@ -43,21 +37,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-          'post' => 'required'
-        ]);
+      $request->validate([
+        'comment' => 'required'
+      ]);
 
-        $post = new Post;
+      $comment = new Comment;
+      $comment->user_id = $request->user_id;
+      $comment->after_birth_post_id = $request->post_id;
+      $comment->comment = $request->comment;
+      $comment->save();
 
-        $post->user_id = Auth::user()->id;
-        $post->post = $request->post;
-
-        $post->save();
-
-        Session::flash('success', 'You have posted successfully!');
-        $request->flash();
-
-        return redirect()->route('user.posts.index');
+      Session::flash('comment_success', 'You have commented successfully!');
+      return redirect()->route('user.posts.index');
     }
 
     /**
@@ -79,8 +70,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
-        return view('user.forum.edit', ['post' => $post]);
+        $comment = Comment::find($id);
+        return view('user.forum.comment_edit', ['comment' => $comment]);
     }
 
     /**
@@ -93,14 +84,14 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-          'post' => 'required'
+          'comment' => 'required'
         ]);
 
-        $post = Post::find($id);
-        $post->post = $request->post;
-        $post->save();
+        $comment = Comment::find($id);
+        $comment->comment = $request->comment;
+        $comment->save();
 
-        Session::flash('post_edit_success', 'Post has been edited successfully!');
+        Session::flash('comment_edit_success', 'Comment has been edited successfully!');
         return redirect()->route('user.posts.index');
     }
 
@@ -112,13 +103,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post->delete();
+        $comment = Comment::find($id);
+        $comment->delete();
 
-        $comments = Comment::where('after_birth_post_id', $id);
-        $comments->delete();
-
-        Session::flash('post_delete_success', 'Post has been deleted successfully!');
+        Session::flash('comment_delete_success', 'Comment has been deleted successfully!');
         return redirect()->route('user.posts.index');
     }
 }

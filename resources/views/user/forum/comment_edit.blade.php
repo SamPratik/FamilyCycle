@@ -1,31 +1,32 @@
 @extends('user.forum.main')
-@section('title', 'Edit Post')
+
 @push('scripts')
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 @endpush
 
 @section('content')
-  <div class="container" style="padding:0px 200px;position:relative;top:100px;">
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <p>{{ $errors->first('post') }}</p>
-        </div>
-    @endif
-    <h2 class="text-center" style="color:#1abc9c;margin:0px;">Edit Post</h2>
-    <form class="row" action="{{ route('user.posts.update', $post->id) }}" method="POST">
-      <input type="hidden" name="_method" value="PUT">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <div class="form-group">
-        <label for=""></label>
-        <textarea name="post" rows="5" cols="80">{!! $post->post !!}</textarea>
+  <div class="container" style="position:relative;top:100px;">
+    <div class="row">
+      <h2 class="text-center" style="color:black;">Edit Comment</h2>
+      <div class="col-md-8 col-md-offset-2">
+        @if ($errors->any())
+          <div class="alert alert-danger">
+              <p>{{ $errors->first('comment') }}</p>
+          </div>
+        @endif
+        <form class="" action="{{ route('user.comments.update', $comment->id) }}" method="POST">
+          {{ csrf_field() }}
+          <input type="hidden" name="_method" value="PUT">
+          <div class="form-group">
+            <textarea name="comment" rows="3" cols="80">{{ $comment->comment }}</textarea>
+          </div>
+          <div class="form-group">
+            <input class="btn btn-primary pull-right" type="submit" value="Save Changes">
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary pull-right" name="" value="Save Changes">
-      </div>
-    </form>
-  </div><br>
-  <div style="clear:both;">
-  </div>
+    </div>
+  </div><br />
 @endsection
 
 @push('scripts')
