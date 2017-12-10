@@ -147,7 +147,7 @@
     var question = $("input[name='live_chat']").val();
     var token = $("input[name='_token']").val();
     $.ajax({
-      url: '{{ route('user.live_chat.store') }}',          //user/live_chat
+      url: '{{ route('user.live_chat.store') }}',         // user/live_chat   
       type: 'POST',
       data: {
         question: question,

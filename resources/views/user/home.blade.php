@@ -84,7 +84,7 @@
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   <h3 class="margin">Our Goal</h3>
-  <p>Discover the best pregnancy & parenting tips, information & education at BabyChakra.com. Connect with moms like you to make better parenting choices via our application </p>
+  <p>Discover the best pregnancy & parenting tips, information & education at FamilyCycle.com. Connect with moms like you to make better parenting choices via our application </p>
   <button id="searchButtonId" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Search
   </button>

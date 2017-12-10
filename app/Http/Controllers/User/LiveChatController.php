@@ -8,13 +8,17 @@ use Cookie;
 
 class LiveChatController extends Controller
 {
-    public function store(Request $request) {
-      $uId = Cookie::get('family_cycle_session');
-      $liveChat = new LiveChat;
-      $liveChat->user_id = $uId;
-      $liveChat->question = $request->question;
-      $liveChat->save();
+    // public function index() {
+    //
+    // }
 
-      return 'Question is submitted to database';
+    public function store(Request $request) {
+        $uId = $_COOKIE['uni_id'];
+        $liveChat = new LiveChat;
+        $liveChat->user_id = $uId;
+        $liveChat->question = $request->question;
+        $liveChat->save();
+
+        return 'Question is submitted to database';
     }
 }

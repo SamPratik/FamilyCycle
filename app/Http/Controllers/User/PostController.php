@@ -22,7 +22,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $liveChats = liveChat::all();
+        if(empty($_COOKIE['uni_id'])) {
+          $uni_id = uniqid();
+          $uId = setcookie('uni_id', $uni_id, time()+2592000);
+        } else {
+          $uId = $_COOKIE['uni_id'];
+        }
+        $liveChats = liveChat::where('user_id', $uId)->get();
         $posts = Post::orderBy('created_at', 'DESC')->get();
         return view('user.forum.index', ['posts' => $posts, 'liveChats' => $liveChats]);
     }

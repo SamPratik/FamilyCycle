@@ -21,25 +21,56 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('user.home');
 
 Route::get('user/contacts', function() {
-  return view('user.contacts');
+  if(empty($_COOKIE['uni_id'])) {
+    $uni_id = uniqid();
+    $uId = setcookie('uni_id', $uni_id, time()+2592000);
+  } else {
+    $uId = $_COOKIE['uni_id'];
+  }
+  $liveChats = liveChat::where('user_id', $uId)->get();
+  return view('user.contacts', ['liveChats' => $liveChats]);
 })->name('user.contacts');
 
 // 4 stages home routes for users
 Route::prefix('user')->group(function () {
     Route::get('after_birth', function () {
-        $liveChats = liveChat::all();
+        if(empty($_COOKIE['uni_id'])) {
+          $uni_id = uniqid();
+          $uId = setcookie('uni_id', $uni_id, time()+2592000);
+        } else {
+          $uId = $_COOKIE['uni_id'];
+        }
+        $liveChats = liveChat::where('user_id', $uId)->get();
         return view('user.stages.after_birth', ['liveChats' => $liveChats]);
     })->name('user.after_birth');
     Route::get('after_marriage', function () {
-        $liveChats = liveChat::all();
+        if(empty($_COOKIE['uni_id'])) {
+          $uni_id = uniqid();
+          $uId = setcookie('uni_id', $uni_id, time()+2592000);
+        } else {
+          $uId = $_COOKIE['uni_id'];
+        }
+        $liveChats = liveChat::where('user_id', $uId)->get();
         return view('user.stages.after_marriage', ['liveChats' => $liveChats]);
     })->name('user.after_marriage');
     Route::get('planning', function () {
-        $liveChats = liveChat::all();
+        if(empty($_COOKIE['uni_id'])) {
+          $uni_id = uniqid();
+          $uId = setcookie('uni_id', $uni_id, time()+2592000);
+        } else {
+          $uId = $_COOKIE['uni_id'];
+        }
+        $liveChats = liveChat::where('user_id', $uId)->get();
         return view('user.stages.planning_before_pregnancy', ['liveChats' => $liveChats]);
     })->name('user.planning');
     Route::get('during_pregnancy', function () {
-        $liveChats = liveChat::all();
+        if(empty($_COOKIE['uni_id'])) {
+          $uni_id = uniqid();
+          $uId = setcookie('uni_id', $uni_id, time()+2592000);
+        } else {
+          $uId = $_COOKIE['uni_id'];
+        }
+        $liveChats = liveChat::where('user_id', $uId)->get();
         return view('user.stages.during_pregnancy', ['liveChats' => $liveChats]);
     })->name('user.during_pregnancy');
 });
