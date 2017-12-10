@@ -65,3 +65,6 @@ Route::resource('user/comments', 'User\CommentController', [
       'index', 'show', 'create'
   ]
 ]);
+
+// Live Chat Routes
+Route::post('user/live_chat', 'User\LiveChatController@store')->name('user.live_chat.store');

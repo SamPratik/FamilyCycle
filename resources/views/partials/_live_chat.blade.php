@@ -125,7 +125,34 @@
       <span>This is a doctor messsage</span>
     </p>
   </div>
-  <form class="live-chat-form" action="index.html" method="post">
+  <form id="liveChatForm" class="live-chat-form" method="post" onsubmit="questionSubmit();">
+    {{ csrf_field() }}
     <input class="live-chat-input" type="text" name="live_chat" value="" placeholder="Type your message here">
   </form>
 </div>
+
+<script type="text/javascript">
+  function questionSubmit() {
+    event.preventDefault();
+    var question = $("input[name='live_chat']").val();
+    var token = $("input[name='_token']").val();
+    $.ajax({
+      url: 'user/live_chat',
+      type: 'POST',
+      data: {
+        question: question,
+        _token: token
+      }
+    })
+    .done(function(data) {
+      console.log(data);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      document.getElementById('liveChatForm').reset();
+    });
+  }
+
+</script>

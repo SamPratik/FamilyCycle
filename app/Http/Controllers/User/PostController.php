@@ -12,7 +12,7 @@ use Auth;
 class PostController extends Controller
 {
     public function __construct() {
-      
+
     }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class PostController extends Controller
         $request->validate([
           'post' => 'required'
         ]);
-
+        
         $post = new Post;
 
         $post->user_id = Auth::user()->id;
