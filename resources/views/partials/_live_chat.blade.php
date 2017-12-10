@@ -95,7 +95,17 @@
 <div class="live-chat-box" id="liveChatBox">
   <p class="text-center live-chat-header">Live Chat <i class="fa fa-times" aria-hidden="true" onclick="this.parentElement.parentElement.style.display='none';"></i></p>
   <div class="live-chat-messages">
-    <p class="doctor-message">
+    @foreach ($liveChats as $liveChat)
+      @if (!empty($liveChat->answer))
+        <p class="doctor-message">
+          <img src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim( 'pratik.anwar@gmail.com' ) ) ) }}?d=monsterid">
+          <span>{{ $liveChat->answer }}</span>
+        </p>
+      @else
+        <p class="user-message"><span>{{ $liveChat->question }}</span></p>
+      @endif
+    @endforeach
+    {{-- <p class="doctor-message">
       <img src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim( 'pratik.anwar@gmail.com' ) ) ) }}?d=monsterid">
       <span>This is a doctor messsage</span>
     </p>
@@ -123,7 +133,7 @@
     <p class="doctor-message">
       <img src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim( 'pratik.anwar@gmail.com' ) ) ) }}?d=monsterid">
       <span>This is a doctor messsage</span>
-    </p>
+    </p> --}}
   </div>
   <form id="liveChatForm" class="live-chat-form" method="post" onsubmit="questionSubmit();">
     {{ csrf_field() }}
@@ -137,7 +147,7 @@
     var question = $("input[name='live_chat']").val();
     var token = $("input[name='_token']").val();
     $.ajax({
-      url: 'user/live_chat',
+      url: '{{ route('user.live_chat.store') }}',          //user/live_chat
       type: 'POST',
       data: {
         question: question,

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\AfterBirthPost as Post;
 use App\AbComment as Comment;
+use App\liveChat as liveChat;
 use Session;
 use Auth;
 
@@ -21,8 +22,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        $liveChats = liveChat::all();
         $posts = Post::orderBy('created_at', 'DESC')->get();
-        return view('user.forum.index', ['posts' => $posts]);
+        return view('user.forum.index', ['posts' => $posts, 'liveChats' => $liveChats]);
     }
 
     /**
@@ -46,7 +48,7 @@ class PostController extends Controller
         $request->validate([
           'post' => 'required'
         ]);
-        
+
         $post = new Post;
 
         $post->user_id = Auth::user()->id;

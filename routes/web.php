@@ -1,4 +1,5 @@
 <?php
+use App\liveChat as liveChat;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,16 +27,20 @@ Route::get('user/contacts', function() {
 // 4 stages home routes for users
 Route::prefix('user')->group(function () {
     Route::get('after_birth', function () {
-        return view('user.stages.after_birth');
+        $liveChats = liveChat::all();
+        return view('user.stages.after_birth', ['liveChats' => $liveChats]);
     })->name('user.after_birth');
     Route::get('after_marriage', function () {
-        return view('user.stages.after_marriage');
+        $liveChats = liveChat::all();
+        return view('user.stages.after_marriage', ['liveChats' => $liveChats]);
     })->name('user.after_marriage');
     Route::get('planning', function () {
-        return view('user.stages.planning_before_pregnancy');
+        $liveChats = liveChat::all();
+        return view('user.stages.planning_before_pregnancy', ['liveChats' => $liveChats]);
     })->name('user.planning');
     Route::get('during_pregnancy', function () {
-        return view('user.stages.during_pregnancy');
+        $liveChats = liveChat::all();
+        return view('user.stages.during_pregnancy', ['liveChats' => $liveChats]);
     })->name('user.during_pregnancy');
 });
 
