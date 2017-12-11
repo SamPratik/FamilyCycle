@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('user.home');
 
+// Doctors Contact List Route: User
 Route::get('user/contacts', function() {
   if(empty($_COOKIE['uni_id'])) {
     $uni_id = uniqid();
@@ -31,7 +32,7 @@ Route::get('user/contacts', function() {
   return view('user.contacts', ['liveChats' => $liveChats]);
 })->name('user.contacts');
 
-// 4 stages home routes for users
+// 4 stages home routes for users: User
 Route::prefix('user')->group(function () {
     Route::get('after_birth', function () {
         if(empty($_COOKIE['uni_id'])) {
@@ -75,7 +76,7 @@ Route::prefix('user')->group(function () {
     })->name('user.during_pregnancy');
 });
 
-// Users Posts Routes
+// Users Posts Routes: User
 Route::resource('user/posts', 'User\PostController', [
   'names' => [
       'index' => 'user.posts.index',
@@ -89,7 +90,7 @@ Route::resource('user/posts', 'User\PostController', [
   ]
 ]);
 
-// User comment routes
+// User comment routes: User
 Route::resource('user/comments', 'User\CommentController', [
   'names' => [
       'store' => 'user.comments.store',
@@ -102,5 +103,6 @@ Route::resource('user/comments', 'User\CommentController', [
   ]
 ]);
 
-// Live Chat Routes
+// Live Chat Routes: User
 Route::post('user/live_chat', 'User\LiveChatController@store')->name('user.live_chat.store');
+Route::get('user/live_chat', 'User\LiveChatController@index')->name('user.live_chat.index');
