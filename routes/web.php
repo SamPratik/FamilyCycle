@@ -34,46 +34,21 @@ Route::get('user/contacts', function() {
 
 // 4 stages home routes for users: User
 Route::prefix('user')->group(function () {
-    Route::get('after_birth', function () {
-        if(empty($_COOKIE['uni_id'])) {
-          $uni_id = uniqid();
-          $uId = setcookie('uni_id', $uni_id, time()+2592000);
-        } else {
-          $uId = $_COOKIE['uni_id'];
-        }
-        $liveChats = liveChat::where('user_id', $uId)->get();
-        return view('user.stages.after_birth', ['liveChats' => $liveChats]);
-    })->name('user.after_birth');
-    Route::get('after_marriage', function () {
-        if(empty($_COOKIE['uni_id'])) {
-          $uni_id = uniqid();
-          $uId = setcookie('uni_id', $uni_id, time()+2592000);
-        } else {
-          $uId = $_COOKIE['uni_id'];
-        }
-        $liveChats = liveChat::where('user_id', $uId)->get();
-        return view('user.stages.after_marriage', ['liveChats' => $liveChats]);
-    })->name('user.after_marriage');
-    Route::get('planning', function () {
-        if(empty($_COOKIE['uni_id'])) {
-          $uni_id = uniqid();
-          $uId = setcookie('uni_id', $uni_id, time()+2592000);
-        } else {
-          $uId = $_COOKIE['uni_id'];
-        }
-        $liveChats = liveChat::where('user_id', $uId)->get();
-        return view('user.stages.planning_before_pregnancy', ['liveChats' => $liveChats]);
-    })->name('user.planning');
-    Route::get('during_pregnancy', function () {
-        if(empty($_COOKIE['uni_id'])) {
-          $uni_id = uniqid();
-          $uId = setcookie('uni_id', $uni_id, time()+2592000);
-        } else {
-          $uId = $_COOKIE['uni_id'];
-        }
-        $liveChats = liveChat::where('user_id', $uId)->get();
-        return view('user.stages.during_pregnancy', ['liveChats' => $liveChats]);
-    })->name('user.during_pregnancy');
+    Route::get('after_birth', 'User\StagesController@afterBirth')->name('user.after_birth');
+    Route::get('after_marriage', 'User\StagesController@afterMarriage')->name('user.after_marriage');
+    Route::get('planning', 'User\StagesController@planning')->name('user.planning');
+    Route::get('during_pregnancy', 'User\StagesController@duringPregnancy')->name('user.during_pregnancy');
+});
+
+############# After Birth Feature Routes #################
+Route::prefix('user/after_birth/')->namespace('User')->group(function() {
+    Route::get('baby_nutrition', 'AfterBirthFeatureController@babyNutrition')->name('user.ab.babyNutrition');
+    Route::get('mother_nutrition', 'AfterBirthFeatureController@motherNutrition')->name('user.ab.motherNutrition');
+    Route::get('vaccination', 'AfterBirthFeatureController@vaccination')->name('user.ab.vaccination');
+    Route::get('diseases', 'AfterBirthFeatureController@diseases')->name('user.ab.diseases');
+    Route::get('photoAlbum', 'AfterBirthFeatureController@photoAlbum')->name('user.ab.photoAlbum');
+    Route::get('guidelines', 'AfterBirthFeatureController@guidelines')->name('user.ab.guidelines');
+    Route::get('calculators', 'AfterBirthFeatureController@calculators')->name('user.ab.calculators');
 });
 
 // Users Posts Routes: User

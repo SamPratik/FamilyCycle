@@ -27,7 +27,7 @@
   <div class="container text-center" style="position:relative;top:100px;">
     <div class="row">
       <h2 style="color:#1abc9c;font-weight:bold;padding-bottom:20px;">Our Services</h2>
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.babyNutrition') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/babys-room/office/150/000000">
@@ -36,7 +36,7 @@
           <h3>Baby Nutrition</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.motherNutrition') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/mother/office/150/000000">
@@ -45,7 +45,7 @@
           <h3>Mother Nutrition</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.vaccination') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/syringe/dusk/150/000000">
@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="row">
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.diseases') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/health-book/color/150/000000">
@@ -65,7 +65,7 @@
           <h3>Diseases</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.photoAlbum') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/compact-camera/color/150/000000">
@@ -74,7 +74,7 @@
           <h3>Photo Album</h3>
         </div>
       </a>
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.guidelines') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/read/color/150/000000">
@@ -85,7 +85,7 @@
       </a>
     </div>
     <div class="row">
-      <a class="col-md-4 af-links">
+      <a class="col-md-4 af-links" href="{{ route('user.ab.calculators') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/calculator/color/150/000000">
