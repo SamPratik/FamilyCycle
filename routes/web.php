@@ -32,7 +32,7 @@ Route::get('user/contacts', function() {
   return view('user.contacts', ['liveChats' => $liveChats]);
 })->name('user.contacts');
 
-// 4 stages home routes for users: User
+############4 stages home routes for users: User############
 Route::prefix('user')->group(function () {
     Route::get('after_birth', 'User\StagesController@afterBirth')->name('user.after_birth');
     Route::get('after_marriage', 'User\StagesController@afterMarriage')->name('user.after_marriage');
@@ -40,7 +40,7 @@ Route::prefix('user')->group(function () {
     Route::get('during_pregnancy', 'User\StagesController@duringPregnancy')->name('user.during_pregnancy');
 });
 
-############# After Birth Feature Routes #################
+############# After Birth Feature Routes: User #################
 Route::prefix('user/after_birth/')->namespace('User')->group(function() {
     Route::get('baby_nutrition', 'AfterBirthFeatureController@babyNutrition')->name('user.ab.babyNutrition');
     Route::get('mother_nutrition', 'AfterBirthFeatureController@motherNutrition')->name('user.ab.motherNutrition');
@@ -81,3 +81,10 @@ Route::resource('user/comments', 'User\CommentController', [
 // Live Chat Routes: User
 Route::post('user/live_chat', 'User\LiveChatController@store')->name('user.live_chat.store');
 Route::get('user/live_chat', 'User\LiveChatController@index')->name('user.live_chat.index');
+
+// ================FuAmdin Routes================
+Route::prefix('fuadmin')->namespace('FuAdmin')->group(function() {
+    Route::get('home', 'FuAdminController@index')->name('fuadmin.home');
+    Route::get('login', 'FuAdminLoginController@showLoginForm')->name('fuadmin.login');
+    Route::post('login', 'FuAdminLoginController@login')->name('fuadmin.login');
+});

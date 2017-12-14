@@ -45,6 +45,15 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'fuadmin' => [
+            'driver' => 'session',
+            'provider' => 'fuadmins',
+        ],
+
+        'fuadmin-api' => [
+            'driver' => 'token',
+            'provider' => 'fuadmins',
+        ],
     ],
 
     /*
@@ -70,6 +79,12 @@ return [
             'model' => App\User::class,
         ],
 
+        'fuadmins' => [
+            'driver' => 'eloquent',
+            'model' => App\FuAdmin::class,
+        ],
+
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,6 +109,11 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'fuadmins' => [
+            'provider' => 'fuadmins',
             'table' => 'password_resets',
             'expire' => 60,
         ],
