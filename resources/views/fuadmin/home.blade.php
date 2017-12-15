@@ -109,21 +109,21 @@
 <div class="container bg-3 text-center" style="padding-bottom:50px;">
   <h3 class="margin">Select a stage</h3><br>
   <div class="row">
-    <a href="{{ route('user.after_marriage') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
+    <a href="{{ route('fuadmin.after_marriage') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
       <img src="https://png.icons8.com/romance/color/250/000000">
       <h2 class="stages-header">After Marriage</h2>
     </a>
-    <a href="{{ route('user.planning') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
+    <a href="{{ route('fuadmin.planning') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
       <img src="https://png.icons8.com/contraception/color/250/000000">
       <h2 class="stages-header">Planning Before Pregnancy</h2>
     </a>
   </div>
   <div class="row">
-    <a href="{{ route('user.during_pregnancy') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
+    <a href="{{ route('fuadmin.during_pregnancy') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
       <img src="https://png.icons8.com/pregnant/color/250/000000">
       <h2 class="stages-header">During Pregnancy</h2>
     </a>
-    <a href="{{ route('user.after_birth') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
+    <a href="{{ route('fuadmin.after_birth') }}" class="col-sm-6 stage-link" style="display:block;text-decoration:none;cursor:pointer;">
       <img src="https://png.icons8.com/babys-room/office/250/000000">
       <h2 class="stages-header">After Birth</h2>
     </a>

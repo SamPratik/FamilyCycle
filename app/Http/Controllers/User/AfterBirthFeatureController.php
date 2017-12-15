@@ -4,15 +4,18 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\AbFeature as AbFeature;
 
 class AfterBirthFeatureController extends Controller
 {
     public function babyNutrition() {
-        return view('user.after_birth_features.babyNutrition');
+        $babyNutrition = AbFeature::find(1);
+        return view('user.after_birth_features.babyNutrition', ['babyNutrition' => $babyNutrition]);
     }
 
     public function motherNutrition() {
-        return view('user.after_birth_features.motherNutrition');
+        $motherNutrition = AbFeature::find(2);
+        return view('user.after_birth_features.motherNutrition', ['motherNutrition' => $motherNutrition]);
     }
 
     public function vaccination() {

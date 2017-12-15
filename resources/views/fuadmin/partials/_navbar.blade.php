@@ -27,15 +27,15 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
 
-                    <li><a href="{{ route('user.home') }}">Home</a></li>
+                    <li><a href="{{ route('fuadmin.home') }}">Home</a></li>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stages
                       <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a href="{{ route('user.after_marriage') }}">After Marriage</a></li>
-                        <li><a href="{{ route('user.planning') }}">Planning Before Pregnancy</a></li>
-                        <li><a href="{{ route('user.during_pregnancy') }}">During Pregnancy</a></li>
-                        <li><a href="{{ route('user.after_birth') }}">After Birth</a></li>
+                        <li><a href="{{ route('fuadmin.after_marriage') }}">After Marriage</a></li>
+                        <li><a href="{{ route('fuadmin.planning') }}">Planning Before Pregnancy</a></li>
+                        <li><a href="{{ route('fuadmin.during_pregnancy') }}">During Pregnancy</a></li>
+                        <li><a href="{{ route('fuadmin.after_birth') }}">After Birth</a></li>
                       </ul>
                     </li>
                     <li><a href="{{ route('user.contacts') }}">Contacts</a></li>
@@ -47,12 +47,12 @@
                     @auth('fuadmin')
                       <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                              <img class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=30" />
-                              {{ Auth::user()->name }} <span class="caret"></span>
+                              <img class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::guard('fuadmin')->user()->email) ) ) }}?d=mm&s=30" />
+                              {{ Auth::guard('fuadmin')->user()->name }} <span class="caret"></span>
                           </a>
 
                           <ul class="dropdown-menu">
-                              <img style="display:block;margin:auto;" class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::user()->email) ) ) }}?d=mm&s=100" />
+                              <img style="display:block;margin:auto;" class="img-circle" src="https://www.gravatar.com/avatar/{{ md5( strtolower( trim(Auth::guard('fuadmin')->user()->email) ) ) }}?d=mm&s=100" />
                               <li class="divider"></li>
                               <li><a href="#">My Profile</a></li>
                               <li>

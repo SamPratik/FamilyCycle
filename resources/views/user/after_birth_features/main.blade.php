@@ -1,7 +1,6 @@
 @includeif('partials._header')
   <body>
     @includeif('partials._navbar')
-
     <div class="container" style="position:relative;top:100px;">
         <div style="padding:50px 200px;color:black;">
             @yield('content')
