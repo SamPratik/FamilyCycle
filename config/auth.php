@@ -49,10 +49,18 @@ return [
             'driver' => 'session',
             'provider' => 'fuadmins',
         ],
-
         'fuadmin-api' => [
             'driver' => 'token',
             'provider' => 'fuadmins',
+        ],
+        'answerer' => [
+            'driver' => 'session',
+            'provider' => 'answerers',
+        ],
+
+        'answerer-api' => [
+            'driver' => 'token',
+            'provider' => 'answerers',
         ],
     ],
 
@@ -78,12 +86,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
         'fuadmins' => [
             'driver' => 'eloquent',
             'model' => App\FuAdmin::class,
         ],
-
+        'answerers' => [
+            'driver' => 'eloquent',
+            'model' => App\Answerer::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -114,6 +124,11 @@ return [
         ],
         'fuadmins' => [
             'provider' => 'fuadmins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'fuadmins' => [
+            'provider' => 'answerers',
             'table' => 'password_resets',
             'expire' => 60,
         ],

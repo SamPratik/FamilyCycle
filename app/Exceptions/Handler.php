@@ -65,6 +65,10 @@ class Handler extends ExceptionHandler
             $login = 'fuadmin.login';
             break;
 
+          case 'answerer':
+              $login = 'answerer.login';
+              break;
+
           default:
             $login = 'login';
             break;
