@@ -117,10 +117,12 @@ Route::get('fuadmin/contacts', function() {
 Route::prefix('fuadmin/edit')->namespace('FuAdmin')->group(function() {
     Route::get('baby_nutrition/{id}', 'AbFeatureEditController@babyNutrition')->name('fuadmin.edit.babyNutrition');
     Route::get('mother_nutrition/{id}', 'AbFeatureEditController@motherNutrition')->name('fuadmin.edit.motherNutrition');
+    Route::get('vaccination/{id}', 'AbFeatureEditController@vaccination')->name('fuadmin.edit.vaccination');
 });
 
 ##############Routes for Updating After Birth Features#############
 Route::prefix('fuadmin/update')->namespace('FuAdmin')->group(function() {
     Route::put('baby_nutrition/{id}', 'AbFeatureUpdateController@babyNutrition')->name('fuadmin.update.babyNutrition');
     Route::put('mother_nutrition/{id}', 'AbFeatureUpdateController@motherNutrition')->name('fuadmin.update.motherNutrition');
+    Route::put('vaccination/{id}', 'AbFeatureUpdateController@vaccination')->name('fuadmin.update.vaccination');
 });

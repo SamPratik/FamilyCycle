@@ -17,4 +17,9 @@ class AbFeatureEditController extends Controller
         $motherNutrition = AbFeature::find($id);
         return view('fuadmin.after_birth_features.edit.motherNutrition', ['motherNutrition' => $motherNutrition]);
     }
+
+    public function vaccination($id) {
+        $vaccination = AbFeature::find($id);
+        return view('fuadmin.after_birth_features.edit.vaccination', ['vaccination' => $vaccination]);
+    }
 }

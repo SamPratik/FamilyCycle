@@ -19,7 +19,8 @@ class AfterBirthFeatureController extends Controller
     }
 
     public function vaccination() {
-        return view('fuadmin.after_birth_features.vaccination');
+        $vaccination = AbFeature::find(3);
+        return view('fuadmin.after_birth_features.vaccination', ['vaccination' => $vaccination]);
     }
 
     public function diseases() {

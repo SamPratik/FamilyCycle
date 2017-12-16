@@ -28,4 +28,14 @@ class AbFeatureUpdateController extends Controller
 
         return view('fuadmin.after_birth_features.motherNutrition', ['motherNutrition' => $motherNutrition]);
     }
+
+    public function vaccination(Request $request, $id) {
+        $vaccination = AbFeature::find($id);
+        $vaccination->content = $request->content;
+        $vaccination->save();
+
+        Session::flash('updateSuccess', 'Feature has been updated successfully!');
+
+        return view('fuadmin.after_birth_features.vaccination', ['vaccination' => $vaccination]);
+    }
 }
