@@ -33,3 +33,4 @@
         color: #1abc9c !important;
     }
   </style>
+</head>

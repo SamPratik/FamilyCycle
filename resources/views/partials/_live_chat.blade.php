@@ -141,7 +141,7 @@
   </div>
   <form id="liveChatForm" class="live-chat-form" method="post" onsubmit="questionSubmit();">
     {{ csrf_field() }}
-    <input class="live-chat-input" type="text" name="live_chat" value="" placeholder="Type your message here">
+    <input class="live-chat-input" type="text" name="live_chat" autocomplete="off" value="" placeholder="Type your message here">
   </form>
 </div>
 

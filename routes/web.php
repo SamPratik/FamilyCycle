@@ -106,7 +106,7 @@ Route::prefix('fuadmin/after_birth/')->namespace('FuAdmin')->group(function() {
 // Doctors Contact List Route
 Route::get('fuadmin/contacts', function() {
   return view('fuadmin.contacts');
-})->name('user.contacts');
+})->name('fuadmin.contacts');
 // Routes for Editing After Birth Features
 Route::prefix('fuadmin/edit')->namespace('FuAdmin')->group(function() {
     Route::get('baby_nutrition/{id}', 'AbFeatureEditController@babyNutrition')->name('fuadmin.edit.babyNutrition');
@@ -132,4 +132,9 @@ Route::prefix('answerer')->namespace('Answerer')->group(function() {
     Route::post('login', 'AnswererLoginController@login')->name('answerer.login');
 });
 // Answerer Messages Routes
-Route::get('answerer/messages', 'Answerer\AnswererController@messages')->name('answerer.messages');
+Route::prefix('answerer')->namespace('Answerer')->group(function() {
+  Route::get('messages', 'AnswererController@messages')->name('answerer.messages');
+  Route::get('full_message/{id}', 'AnswererController@fullMessage')->name('answerer.fullMessage');
+  Route::get('message_load/{id}', 'AnswererController@messageLoad')->name('answerer.messageLoad');
+  Route::post('message_submit', 'AnswererController@messageSubmit')->name('answerer.messageSubmit');
+});

@@ -38,7 +38,7 @@
                         <li><a href="{{ route('fuadmin.after_birth') }}">After Birth</a></li>
                       </ul>
                     </li>
-                    <li><a href="{{ route('user.contacts') }}">Contacts</a></li>
+                    <li><a href="{{ route('fuadmin.contacts') }}">Contacts</a></li>
                     {{-- <li><a href="#">My Profile</a></li> --}}
                     @guest('fuadmin')
                       <li><a href="{{ route('login') }}">Login</a></li>
