@@ -16,7 +16,8 @@ class AbFeatureUpdateController extends Controller
 
         Session::flash('updateSuccess', 'Feature has been updated successfully!');
 
-        return view('fuadmin.after_birth_features.babyNutrition', ['babyNutrition' => $babyNutrition]);
+        return redirect()->route('fuadmin.ab.babyNutrition');
+        //return view('fuadmin.after_birth_features.babyNutrition', ['babyNutrition' => $babyNutrition]);
     }
 
     public function motherNutrition(Request $request, $id) {
@@ -25,8 +26,7 @@ class AbFeatureUpdateController extends Controller
         $motherNutrition->save();
 
         Session::flash('updateSuccess', 'Feature has been updated successfully!');
-
-        return view('fuadmin.after_birth_features.motherNutrition', ['motherNutrition' => $motherNutrition]);
+        return redirect()->route('fuadmin.ab.motherNutrition');
     }
 
     public function vaccination(Request $request, $id) {
@@ -35,7 +35,6 @@ class AbFeatureUpdateController extends Controller
         $vaccination->save();
 
         Session::flash('updateSuccess', 'Feature has been updated successfully!');
-
-        return view('fuadmin.after_birth_features.vaccination', ['vaccination' => $vaccination]);
+        return redirect()->route('fuadmin.ab.vaccination');
     }
 }

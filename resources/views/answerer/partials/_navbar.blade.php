@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
 
-                    <li><a href="{{ route('answerer.home') }}">Home</a></li>
+                    {{-- <li><a href="{{ route('answerer.home') }}">Home</a></li> --}}
                     <li><a href="{{ route('answerer.messages') }}">Messages</a></li>
 
                     @auth('answerer')

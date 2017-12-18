@@ -125,7 +125,7 @@ Route::prefix('fuadmin/update')->namespace('FuAdmin')->group(function() {
 
 ####################Answerer Routes####################
 // Anwerer Dashboard
-Route::get('answerer/home', 'Answerer\AnswererController@index')->name('answerer.home');
+// Route::get('answerer/home', 'Answerer\AnswererController@index')->name('answerer.home');
 // Login Routes
 Route::prefix('answerer')->namespace('Answerer')->group(function() {
     Route::get('login', 'AnswererLoginController@showLoginForm')->name('answerer.login');

@@ -23,7 +23,7 @@ class AnswererLoginController extends Controller
         ]);
 
         if(Auth::guard('answerer')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect()->intended(route('answerer.home'));
+            return redirect()->intended(route('answerer.messages'));
         }
 
         return redirect()->back()->withInput($request->only('email', 'remember'));

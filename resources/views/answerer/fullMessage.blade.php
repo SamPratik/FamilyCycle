@@ -56,24 +56,6 @@
                         <p class="doctor-message">{{ $chat->answer }}</p>
                       @endempty
                     @endforeach
-                    {{-- <p class="user-message">This is a user message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a doctor message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="user-message">This is a user message</p>
-                    <p class="doctor-message">This is a doctor message</p>
-                    <p class="user-message">This is a doctor message</p> --}}
                     <p style="clear:both;"></p>
                 </div>
                 <form onsubmit="submitText(event,'{{ $id }}')" method="POST" id="chatForm">
