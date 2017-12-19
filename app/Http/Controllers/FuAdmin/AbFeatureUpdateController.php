@@ -37,4 +37,22 @@ class AbFeatureUpdateController extends Controller
         Session::flash('updateSuccess', 'Feature has been updated successfully!');
         return redirect()->route('fuadmin.ab.vaccination');
     }
+
+    public function diseases(Request $request, $id) {
+        $diseases = AbFeature::find($id);
+        $diseases->content = $request->content;
+        $diseases->save();
+
+        Session::flash('updateSuccess', 'Feature has been updated successfully!');
+        return redirect()->route('fuadmin.ab.diseases');
+    }
+
+    public function guidelines(Request $request, $id) {
+        $guidelines = AbFeature::find($id);
+        $guidelines->content = $request->content;
+        $guidelines->save();
+
+        Session::flash('updateSuccess', 'Feature has been updated successfully!');
+        return redirect()->route('fuadmin.ab.guidelines');
+    }
 }

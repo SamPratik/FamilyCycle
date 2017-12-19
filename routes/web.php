@@ -112,20 +112,22 @@ Route::prefix('fuadmin/edit')->namespace('FuAdmin')->group(function() {
     Route::get('baby_nutrition/{id}', 'AbFeatureEditController@babyNutrition')->name('fuadmin.edit.babyNutrition');
     Route::get('mother_nutrition/{id}', 'AbFeatureEditController@motherNutrition')->name('fuadmin.edit.motherNutrition');
     Route::get('vaccination/{id}', 'AbFeatureEditController@vaccination')->name('fuadmin.edit.vaccination');
+    Route::get('diseases/{id}', 'AbFeatureEditController@diseases')->name('fuadmin.edit.diseases');
+    Route::get('guidelines/{id}', 'AbFeatureEditController@guidelines')->name('fuadmin.edit.guidelines');
 });
 // Routes for Updating After Birth Features
 Route::prefix('fuadmin/update')->namespace('FuAdmin')->group(function() {
     Route::put('baby_nutrition/{id}', 'AbFeatureUpdateController@babyNutrition')->name('fuadmin.update.babyNutrition');
     Route::put('mother_nutrition/{id}', 'AbFeatureUpdateController@motherNutrition')->name('fuadmin.update.motherNutrition');
     Route::put('vaccination/{id}', 'AbFeatureUpdateController@vaccination')->name('fuadmin.update.vaccination');
+    Route::put('diseases/{id}', 'AbFeatureUpdateController@diseases')->name('fuadmin.update.diseases');
+    Route::put('guidelines/{id}', 'AbFeatureUpdateController@guidelines')->name('fuadmin.update.guidelines');
 });
 
 
 
 
 ####################Answerer Routes####################
-// Anwerer Dashboard
-// Route::get('answerer/home', 'Answerer\AnswererController@index')->name('answerer.home');
 // Login Routes
 Route::prefix('answerer')->namespace('Answerer')->group(function() {
     Route::get('login', 'AnswererLoginController@showLoginForm')->name('answerer.login');

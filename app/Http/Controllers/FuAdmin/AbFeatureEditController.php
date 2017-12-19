@@ -22,4 +22,14 @@ class AbFeatureEditController extends Controller
         $vaccination = AbFeature::find($id);
         return view('fuadmin.after_birth_features.edit.vaccination', ['vaccination' => $vaccination]);
     }
+
+    public function diseases($id) {
+        $diseases = AbFeature::find($id);
+        return view('fuadmin.after_birth_features.edit.diseases', ['diseases' => $diseases]);
+    }
+
+    public function guidelines($id) {
+        $guidelines = AbFeature::find($id);
+        return view('fuadmin.after_birth_features.edit.guidelines', ['guidelines' => $guidelines]);
+    }
 }

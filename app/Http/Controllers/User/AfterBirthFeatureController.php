@@ -19,11 +19,13 @@ class AfterBirthFeatureController extends Controller
     }
 
     public function vaccination() {
-        return view('user.after_birth_features.vaccination');
+        $vaccination = AbFeature::find(3);
+        return view('user.after_birth_features.vaccination', ['vaccination' => $vaccination]);
     }
 
     public function diseases() {
-        return view('user.after_birth_features.diseases');
+        $diseases = AbFeature::find(4);
+        return view('user.after_birth_features.diseases', ['diseases' => $diseases]);
     }
 
     public function photoAlbum() {
@@ -31,7 +33,8 @@ class AfterBirthFeatureController extends Controller
     }
 
     public function guidelines() {
-        return view('user.after_birth_features.guidelines');
+        $guidelines = AbFeature::find(5);
+        return view('user.after_birth_features.guidelines', ['guidelines' => $guidelines]);
     }
 
     public function calculators() {

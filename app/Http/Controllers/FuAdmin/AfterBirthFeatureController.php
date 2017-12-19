@@ -24,7 +24,8 @@ class AfterBirthFeatureController extends Controller
     }
 
     public function diseases() {
-        return view('fuadmin.after_birth_features.diseases');
+        $diseases = AbFeature::find(4);
+        return view('fuadmin.after_birth_features.diseases', ['diseases' => $diseases]);
     }
 
     public function photoAlbum() {
@@ -32,7 +33,8 @@ class AfterBirthFeatureController extends Controller
     }
 
     public function guidelines() {
-        return view('fuadmin.after_birth_features.guidelines');
+      $guidelines = AbFeature::find(5);
+      return view('fuadmin.after_birth_features.guidelines', ['guidelines' => $guidelines]);
     }
 
     public function calculators() {
