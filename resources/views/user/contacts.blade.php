@@ -27,7 +27,7 @@
   <div class="container text-center" style="position:relative;top:100px;">
     <div class="container">
       <h2 style="color:#1abc9c;font-weight:bold;padding-bottom:20px;">Contacts</h2>
-      <a class="col-md-6 af-links">
+      <a class="col-md-6 af-links" href="{{ route('user.contact.doctors') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/medical-doctor/color/250/000000">
@@ -36,7 +36,7 @@
           <h3>Doctor's List</h3>
         </div>
       </a>
-      <a class="col-md-6 af-links">
+      <a class="col-md-6 af-links" href="{{ route('user.contact.ambulances') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/ambulance/color/250/000000">
@@ -57,7 +57,7 @@
           <h3>Medicine</h3>
         </div>
       </a>
-      <a class="col-md-6 af-links">
+      <a class="col-md-6 af-links" href="{{ route('user.contact.hospitals') }}">
       {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
         <div>
           <img src="https://png.icons8.com/hospital/dusk/250/000000">

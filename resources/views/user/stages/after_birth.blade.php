@@ -83,10 +83,10 @@
           <h3>Guidelines</h3>
         </div>
       </a>
-    </div>
-    <div class="row">
+    </div><br>
+    {{-- <div class="row">
       <a class="col-md-4 af-links" href="{{ route('user.ab.calculators') }}">
-      {{-- <div class="col-md-4" style="box-shadow:0px 0px 10px black;border-radius:10px;"> --}}
+
         <div>
           <img src="https://png.icons8.com/calculator/color/150/000000">
         </div>
@@ -94,7 +94,7 @@
           <h3>Calculators</h3>
         </div>
       </a>
-    </div>
+    </div> --}}
   </div>
   @includeif('partials._live_chat')
   @includeif('partials._footer')

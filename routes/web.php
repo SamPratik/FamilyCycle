@@ -76,7 +76,12 @@ Route::resource('user/comments', 'User\CommentController', [
 // Live Chat Routes: User
 Route::post('user/live_chat', 'User\LiveChatController@store')->name('user.live_chat.store');
 Route::get('user/live_chat', 'User\LiveChatController@index')->name('user.live_chat.index');
-
+// Contact List Routes
+Route::prefix('user/contact')->namespace('User')->group(function() {
+  Route::get('doctor_lists', 'ContactListController@doctorLists')->name('user.contact.doctors');
+  Route::get('ambulance_lists', 'ContactListController@ambulanceLists')->name('user.contact.ambulances');
+  Route::get('hospital_lists', 'ContactListController@hospitalLists')->name('user.contact.hospitals');
+});
 
 
 
